@@ -9,7 +9,7 @@ function Login() {
     const [email, setEmail] = useState('')
     const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const [err, setError] = useState('')
     const [men, setMend] = useState('')
     const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function Login() {
 
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center flex-row'>
         <form onSubmit={handleSubmit} className='flex flex-col rounded border'>
 
             <input
@@ -58,13 +58,13 @@ function Login() {
             />
 
         
-            <button type='submit' className=''> Iniciar Sesion</button>
+            <button type='submit' className='border rounded hover:bg-blue-400'> Iniciar Sesion</button>
 
             <p> No se ha registrado? 
-                <Link to={'register'} className=''>Ir a Registro</Link>
+                <Link to={'/register'} className='text-blue-500'>Ir a Registro</Link>
             </p>
 
-            {error&& <p>{error}</p>}
+            {err&& <p>{err}</p>}
             {men&& <p>{men}</p>}
 
         </form>

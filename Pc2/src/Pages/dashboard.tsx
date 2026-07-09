@@ -1,18 +1,19 @@
 import React from 'react'
 import { dashboardService } from '../Service/dashboardService'
 import { useEffect, useState} from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import type { Curso } from '../Types/types'
 import { getErrorMenssage } from '../Utils/erros'
 
 
-function dashboard() {
+function Dashboard() {
 
 
     const  [curso , setCurso]  = useState<Curso[]>([])
     const [pag , setPag] = useState(0)
     const porPag = 5;
     const [error, setError] = useState('')
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -62,4 +63,4 @@ function dashboard() {
   )
 }
 
-export default dashboard
+export default Dashboard

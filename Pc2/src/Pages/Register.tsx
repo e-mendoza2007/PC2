@@ -35,7 +35,7 @@ function Register() {
 
 
   return (
-    <div>
+    <div className='flex flex-col flex-row justify-center items-center'>
         <form onSubmit={handleSubmit} className='flex flex-col rounded border'>
 
             <input
@@ -67,10 +67,10 @@ function Register() {
             onChange={(e) => setFullName(e.target.value)}
             />
 
-            <button type='submit' className=''> Registrarse</button>
+            <button type='submit' className='border rounded hover: bg-blue-500'> Registrarse</button>
 
             <p> Ya se encutrar registrado? 
-                <Link to={'login'} className=''>Ir a Login</Link>
+                <Link to={'/login'} className='text-blue-500'>Ir a Login</Link>
             </p>
 
 
