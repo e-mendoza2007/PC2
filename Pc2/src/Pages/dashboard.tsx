@@ -67,6 +67,8 @@ function Dashboard() {
                    Badge: {v.status} 
                 </p>
                 <button onSubmit={() => Elimnar(v.id)}>Eliminar</button>
+                {errorElminar&& <p>{errorElminar}</p>}
+                {menDelete&& <p>{menDelete}</p>}
             </div>
         ))}
 
