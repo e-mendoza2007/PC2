@@ -4,6 +4,7 @@ import { useEffect, useState} from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import type { Curso } from '../Types/types'
 import { getErrorMenssage } from '../Utils/erros'
+import { authService } from '../Service/authService'
 
 
 function Dashboard() {
@@ -15,6 +16,9 @@ function Dashboard() {
     const [error, setError] = useState('')
     const navigate = useNavigate();
 
+
+    const [errorElminar, setErroDelete] = useState('')
+    const [menDelete, setMenDelete] = useState('')
 
     useEffect(() => {
 
@@ -38,6 +42,16 @@ function Dashboard() {
     const incio = pag*porPag
     const vector = curso.slice(incio, incio+ porPag)
 
+    const Elimnar = async (id:number) =>{
+
+
+        try{
+            const repsonse = dashboardService.eliminar(id);
+            setMenDelete('Eliminado corectamente')
+        }catch(er:any){
+            setErroDelete(getErrorMenssage(er))
+        }
+    } 
 
   return (
     <div>
@@ -52,11 +66,13 @@ function Dashboard() {
                    Nota actual : {v.grade}
                    Badge: {v.status} 
                 </p>
+                <button onSubmit={() => Elimnar(v.id)}>Eliminar</button>
             </div>
         ))}
 
         <button onClick={() => setPag(pag-1)} disabled={pag === 0}> Previus</button>
         <button onClick={() => setPag(pag+1)} disabled={incio + porPag >= curso.length}> Next</button>
+        
         <p>
             Quieres crear un nuevo curso? 
             <Link to={'/newCourse'}>Crear un nuevo curso</Link>

@@ -12,6 +12,11 @@ export const dashboardService =  {
     nuevo : async (data:CursoNuevo)  => {
         const response = await api.post('/courses',data)
         return response.data;
+    },
+
+    eliminar : async (id:number) => {
+        const response = await api.delete(`/courses/${id}`)
+        return response.data;
     }
    
 
