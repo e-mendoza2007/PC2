@@ -64,7 +64,7 @@ function Login() {
                 <Link to={'/register'} className='text-blue-500'>Ir a Registro</Link>
             </p>
 
-            {err&& <p>{err}</p>}
+            {err&& <p>{err  }</p>}
             {men&& <p>{men}</p>}
 
         </form>

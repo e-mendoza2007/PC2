@@ -1,5 +1,5 @@
 import api from '../api'
-import type { Curso } from '../Types/types';
+import type { CursoNuevo, Curso}  from '../Types/types';
 
 export const dashboardService =  {
 
@@ -9,6 +9,10 @@ export const dashboardService =  {
         return response.data;
     },
 
+    nuevo : async (data:CursoNuevo)  => {
+        const response = await api.post('/courses',data)
+        return response.data;
+    }
    
 
 }

@@ -17,7 +17,17 @@ export interface Login {
 
 export interface Curso {
 
-   id: number
+    id: number
+    name: string
+    code: string
+    credits: number
+    grade: number
+    status: string
+}
+
+export interface CursoNuevo {
+
+    
     name: string
     code: string
     credits: number
